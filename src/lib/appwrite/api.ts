@@ -1,7 +1,7 @@
 import { ID, Query } from "appwrite";
 
 import { appwriteConfig, account, databases, storage, avatars } from "./config";
-import {INewPost, INewUser } from "@/types";
+import { INewPost, INewUser } from "@/types";
 
 // ============================================================
 // AUTH
@@ -61,7 +61,10 @@ export async function saveUserToDB(user: {
 // ============================== SIGN IN
 export async function signInAccount(user: { email: string; password: string }) {
   try {
-    const session = await account.createEmailPasswordSession(user.email, user.password);
+    const session = await account.createEmailPasswordSession(
+      user.email,
+      user.password
+    );
 
     return session;
   } catch (error) {
@@ -207,12 +210,12 @@ export async function deleteFile(fileId: string) {
   }
 }
 
-export async function getRecentPosts(){
-  const posts=await databases.listDocuments(
+export async function getRecentPosts() {
+  const posts = await databases.listDocuments(
     appwriteConfig.databaseId,
     appwriteConfig.postCollectionId,
-    [Query.orderDesc('$createdAt'),Query.limit(20)]
-  )
-  if(!posts)throw Error;
+    [Query.orderDesc("$createdAt"), Query.limit(20)]
+  );
+  if (!posts) throw Error;
   return posts;
 }
