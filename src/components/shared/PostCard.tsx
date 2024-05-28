@@ -1,15 +1,20 @@
-import { useUserContext } from "@/context/AuthContext";
-import { multiFormatDateString } from "@/lib/utils";
 import { Models } from "appwrite";
-import React from "react";
 import { Link } from "react-router-dom";
-import PostStats from "./PostStats";
+
+import PostStats from "@/components/shared/PostStats";
+import { multiFormatDateString } from "@/lib/utils";
+import { useUserContext } from "@/context/AuthContext";
+import React from "react";
+
 type PostCardProps = {
   post: Models.Document;
 };
+
 const PostCard = ({ post }: PostCardProps) => {
   const { user } = useUserContext();
+
   if (!post.creator) return;
+
   return (
     <div className="post-card">
       <div className="flex-between">
@@ -72,6 +77,7 @@ const PostCard = ({ post }: PostCardProps) => {
           className="post-card_img"
         />
       </Link>
+
       <PostStats post={post} userId={user.id} />
     </div>
   );

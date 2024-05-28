@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-module.exports = {
+module.exports = withMT({
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -60,4 +61,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+});
