@@ -49,7 +49,7 @@ const Main: React.FC = () => {
   return (
     <div className="main" style={{ backgroundColor: "#09090A" }}>
       <div className="nav">
-        <p>Snapgram AI</p>
+        <p>Codegram AI</p>
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -132,7 +132,7 @@ const Main: React.FC = () => {
             </div>
           </div>
           <p className="bottom-info">
-            Gemini may display inaccurate info, take it into consideration.
+            Codegram may display inaccurate info, take it into consideration.
           </p>
         </div>
       </div>
